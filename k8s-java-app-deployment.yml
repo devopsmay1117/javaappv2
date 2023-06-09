@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: javaapp
+  namespace: dev
 spec:
   replicas: 1
   selector:
@@ -13,7 +14,7 @@ spec:
         app: javaapp
     spec:
       containers:
-        - name: springboot
+        - name: javaapp
           image: arun1117/arun1117/javaapp-demo:v1
           ports:
             - containerPort: 8080
@@ -25,6 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: javaapp
+  namespace: dev
 spec:
   type: ClusterIP
   ports:
@@ -37,6 +39,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myingress
+  namespace: dev
 spec:
   ingressClassName: nginx
   rules:
