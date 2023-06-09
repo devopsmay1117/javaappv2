@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: javaapp
-          image: arun1117/arun1117/javaapp-demo:v1
+          image: arun1117/javaapp-demo:v1
           ports:
             - containerPort: 8080
           env:
